@@ -1,19 +1,39 @@
 import React from "react";
 import './dist/passwordreset.css'
 import BlackBlock from "../blackBlock/blackBlock";
+import SuccessModalReset from "../success_reset/successReset"
 
 export default class ResetPassword extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-        email:''
+        email:'',
+        success: false
       }
+   }
+
+   send = ()=>{
+      this.setState({success: true},()=>{
+         setTimeout(() => {
+            let success_con = document.getElementById("success_con")
+            success_con.style.top = "0"
+            setTimeout(() => {
+               success_con.style.top = "-20vh"
+               setTimeout(() => {
+                  this.setState({success: false}) 
+               }, 250);
+            }, 3000);
+         }, 50);
+      })
+
+
    }
   
 
    render(){
       return (
          <div className="reset_password_con">
+         {this.state.success?<SuccessModalReset />:""} 
          <div className="reset_modal">
             <div className="reset_sizer">
                <div className="reset_forgot">Forgot your password?</div>
@@ -23,7 +43,7 @@ export default class ResetPassword extends React.Component {
                </div>
                <div className="reset_button_con">
                   <button onClick={()=>{this.props.ResetPasswords()}} className="reset_btn_text reset_btn_close">Close</button>
-                  <button className="reset_btn_text reset_btn_send">Send</button>
+                  <button onClick={()=>{this.send()}} className="reset_btn_text reset_btn_send">Send</button>
                </div>
 
             </div>
