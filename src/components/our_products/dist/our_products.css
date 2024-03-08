@@ -30,6 +30,12 @@
 .nav_to_prod {
   cursor: pointer;
   color: #ffb75e;
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.2rem;
   background: #f4f4f4;
   border: 0 solid #f4f4f4;
   outline: none;

@@ -44,6 +44,7 @@
   line-height: 2.15vh;
   cursor: pointer;
   transition: 0.2s;
+  user-select: none;
 }
 .nav_element:hover {
   color: #ffb75e;
