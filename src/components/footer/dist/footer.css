@@ -36,7 +36,7 @@
   width: 7.36vw;
 }
 .location_con {
-  width: 23vw;
+  width: 40vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -47,12 +47,12 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 650;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 2.2vh;
   color: #fff;
 }
 .footer_navigator {
-  width: 13vw;
+  width: 25vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -62,7 +62,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 650;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 2.15vh;
   color: #fff;
   gap: 3.5vh;

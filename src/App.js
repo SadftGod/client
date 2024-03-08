@@ -4,6 +4,7 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Authorization from './pages/authorization/authorization';
 import Renavigator from './components/renavigator/renavigator';
+import Main from './pages/main/main';
 
 function App() {
    return (
@@ -13,7 +14,7 @@ function App() {
             <Routes>
                <Route exact  path='/' element={<Renavigator />}/>
                <Route exact  path='/authorization' element={ <Authorization /> } />
-               <Route exact  path='/main' />
+               <Route exact  path='/main' element={<Main />} />
             </Routes>
             <Footer />
          </Router>
