@@ -50,7 +50,7 @@ export default function Footer() {
                   </div>
                   <div className="contact">
                      <div>Contact:</div>
-                     <div>+380961126340</div>
+                     <a className='user_links' href="tel:+380961126340"><div>+380961126340</div></a>
                      <div>------------@gmail.com</div>
                   </div>
                </div>

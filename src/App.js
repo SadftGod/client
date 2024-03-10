@@ -5,6 +5,7 @@ import Footer from './components/footer/footer';
 import Authorization from './pages/authorization/authorization';
 import Renavigator from './components/renavigator/renavigator';
 import Main from './pages/main/main';
+import Products from './pages/products/products';
 
 function App() {
    return (
@@ -15,6 +16,7 @@ function App() {
                <Route exact  path='/' element={<Renavigator />}/>
                <Route exact  path='/authorization' element={ <Authorization /> } />
                <Route exact  path='/main' element={<Main />} />
+               <Route exact  path='/products' element={<Products />} />
             </Routes>
             <Footer />
          </Router>
