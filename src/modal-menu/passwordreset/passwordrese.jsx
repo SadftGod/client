@@ -20,7 +20,7 @@ export default class ResetPassword extends React.Component {
             setTimeout(() => {
                success_con.style.top = "-20vh"
                setTimeout(() => {
-                  this.setState({success: false}) 
+                  this.setState({success: false},()=>{this.props.ResetPasswords()}) 
                }, 250);
             }, 3000);
          }, 50);
