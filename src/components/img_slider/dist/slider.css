@@ -63,6 +63,7 @@
   left: 38%;
 }
 .scroll_bottom {
+  user-select: none;
   background: rgba(0,0,0,0.54);
   border-radius: 100vw;
   display: flex;
@@ -114,6 +115,7 @@
   border: 1px solid #fff;
 }
 .connect_to_sap {
+  user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,5 +165,6 @@
   overflow: hidden;
 }
 .img_con_img {
+  user-select: none;
   width: 100vw;
 }

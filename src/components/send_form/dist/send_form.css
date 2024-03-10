@@ -162,6 +162,7 @@
   line-height: 1.2rem;
 }
 .send_contact_form {
+  user-select: none;
   border: none;
   cursor: pointer;
   transition: 0.4s;
@@ -178,6 +179,7 @@
   background: #fff;
 }
 .send_contact_form_hover {
+  user-select: none;
   border: none;
   transition: 0.4s;
   cursor: pointer;

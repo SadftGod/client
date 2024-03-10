@@ -28,6 +28,7 @@
   text-align: center;
 }
 .nav_to_prod {
+  user-select: none;
   cursor: pointer;
   color: #ffb75e;
   font-family: "Jura", sans-serif;
