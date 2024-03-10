@@ -27,19 +27,40 @@
   top: 20.48%;
   left: 10.15%;
 }
+.title1 {
+  width: 60vw;
+}
+.title2 {
+  width: 60vw;
+}
+.title3 {
+  width: 80vw;
+}
 .description {
   z-index: 2;
-  position: absolute;
   color: #fff;
   width: 40.8%;
-  top: 46%;
-  left: 47%;
   font-family: "Jura", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 300;
-  font-size: 2.34vh;
-  line-height: 2.5vh;
+  font-size: 2.5vh;
+  line-height: 2.7vh;
+}
+.description1 {
+  position: absolute;
+  top: 52%;
+  left: 47%;
+}
+.description2 {
+  position: absolute;
+  top: 42%;
+  left: 10.15%;
+}
+.description3 {
+  position: absolute;
+  top: 58%;
+  left: 38%;
 }
 .scroll_bottom {
   background: rgba(0,0,0,0.54);

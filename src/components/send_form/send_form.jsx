@@ -70,7 +70,7 @@ export default class SendForm extends React.Component {
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  title="googleMap" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  title="googleMap" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
          </div>
       )

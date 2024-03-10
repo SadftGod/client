@@ -79,18 +79,18 @@ export default class Slider extends React.Component {
          <div className="img_slider">
             <div className="imgs_con">
                <div id="first_img" className="img_con">
-                  <div className="title">{this.state.title}</div>
-                  <div className="description">{this.state.description}</div>
+                  <div className="title title1">{this.state.title}</div>
+                  <div className="description description1">{this.state.description}</div>
                   <img className="img_con_img" src={process.env.PUBLIC_URL + '/img/slider/first_slider.png'} alt="" />
                </div>
                <div id="second_img" className="img_con">
-                  <div className="title">{this.state.title}</div>
-                  <div className="description">{this.state.description}</div>
+                  <div className="title title2">{this.state.title}</div>
+                  <div className="description description2">{this.state.description}</div>
                   <img className="img_con_img" src={process.env.PUBLIC_URL + '/img/slider/second_slider.png'} alt="" />
                </div>
                <div id="third_img" className="img_con">
-                  <div className="title">{this.state.title}</div>
-                  <div className="description">{this.state.description}</div>
+                  <div className="title title3">{this.state.title}</div>
+                  <div className="description description3">{this.state.description}</div>
                   <img className="img_con_img" src={process.env.PUBLIC_URL + '/img/slider/third_slider.png'} alt="" />
                </div>
 

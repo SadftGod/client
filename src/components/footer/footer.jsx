@@ -1,7 +1,40 @@
 import React from 'react';
 import './dist/footer.css'
+import { useNavigate } from "react-router-dom";
+
 
 export default function Footer() {
+   const navigate = useNavigate();
+
+   const nav = (name) => {
+      navigate(name);
+    };
+
+    const aboutUs = () =>{
+      if(window.location.pathname !== '/main'){
+         nav('/main')
+      }
+
+      setTimeout(() => {
+         const element = document.querySelector('.faf_con');
+         if(element){
+            element.scrollIntoView({ behavior: 'smooth' });
+         } 
+       }, 500);
+   }
+
+    const ContactUs = () =>{
+      if(window.location.pathname !== '/main'){
+         nav('/main')
+      }
+
+      setTimeout(() => {
+         const element = document.querySelector('.send_form_con');
+         if(element){
+            element.scrollIntoView({ behavior: 'smooth' });
+         } 
+       }, 500);
+   }
 
 
    return (
@@ -17,14 +50,15 @@ export default function Footer() {
                   </div>
                   <div className="contact">
                      <div>Contact:</div>
-                     <div> +380123456789</div>
+                     <div>+380961126340</div>
                      <div>------------@gmail.com</div>
                   </div>
                </div>
                <div className="footer_navigator">
-                  <div className="footer_navigator_e">Our mission</div>
-                  <div className="footer_navigator_e">Our products</div>
-                  <div className="footer_navigator_e">Contact us</div>
+                  <div onClick={()=>{aboutUs()}}  className="footer_navigator_e">About us</div>
+                  <div onClick={()=>{nav('/products')}} className="footer_navigator_e">Our products</div>
+                  <div onClick={()=>{ContactUs()}} className="footer_navigator_e">Contact us</div>
+                  <div className="footer_navigator_e">My account</div>
                </div>
                <div className="footer_contactus">
                   <div className="footer_contactus_title">Follow us:</div>
