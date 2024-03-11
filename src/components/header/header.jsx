@@ -53,14 +53,14 @@ export default function Header(){
    return (
       <div className="header_con">
          <div className="header">
-            <div className="logo_con">
+            <div onClick={()=>{nav('/main')}} className="logo_con">
                <img className="logo" src={process.env.PUBLIC_URL + '/img/big_logo.svg'} alt="sd" />
             </div>
             <nav className="nav">
                <div onClick={()=>{aboutUs()}} className="nav_element">About us</div>
                <div onClick={()=>{nav('/products')}} className="nav_element">Products</div>
                <div onClick={()=>{ContactUs()}} className="nav_element">Contacts</div>
-               <div className="nav_element">My account</div>
+               <div onClick={()=>{nav('/account')}} className="nav_element">My account</div>
                <div onClick={()=>{changeLanguage()}} className="nav_element"><span id="UAlanguage" style={{transition:'0.2s' }}>UA</span>|<span id="ENlanguage" style={{ color: '#FFB75E', transition:'0.2s' }}>EN</span></div>
             </nav>
          </div>

@@ -58,7 +58,7 @@ export default function Footer() {
                   <div onClick={()=>{aboutUs()}}  className="footer_navigator_e">About us</div>
                   <div onClick={()=>{nav('/products')}} className="footer_navigator_e">Our products</div>
                   <div onClick={()=>{ContactUs()}} className="footer_navigator_e">Contact us</div>
-                  <div className="footer_navigator_e">My account</div>
+                  <div onClick={()=>{nav('/account')}}  className="footer_navigator_e">My account</div>
                </div>
                <div className="footer_contactus">
                   <div className="footer_contactus_title">Follow us:</div>

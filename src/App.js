@@ -6,6 +6,7 @@ import Authorization from './pages/authorization/authorization';
 import Renavigator from './components/renavigator/renavigator';
 import Main from './pages/main/main';
 import Products from './pages/products/products';
+import Profile from './pages/profile/profile';
 
 function App() {
    return (
@@ -17,6 +18,7 @@ function App() {
                <Route exact  path='/authorization' element={ <Authorization /> } />
                <Route exact  path='/main' element={<Main />} />
                <Route exact  path='/products' element={<Products />} />
+               <Route exact  path='/account' element={<Profile />} />
             </Routes>
             <Footer />
          </Router>
