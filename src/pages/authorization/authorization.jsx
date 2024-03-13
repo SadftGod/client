@@ -14,7 +14,7 @@ export default function Authorization() {
     };
 
    const login = ()=>{
-      nav('/')
+      nav('/main')
    }
 
    const authSwitch = (action) => {
