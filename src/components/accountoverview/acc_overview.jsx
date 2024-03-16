@@ -22,6 +22,11 @@ export default class Overview extends React.Component {
       input = input.replace(/(.+)\+/g, '$1');
       this.setState({ phone: input });
    }
+   componentDidUpdate(prevProp,prevState){
+      if(this.props.account_data !== prevProp.account_data){
+         this.setState({email: this.props.account_data.email , phone: this.props.account_data.phone})
+      }
+   }
 
    render() {
       return (
