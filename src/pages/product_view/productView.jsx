@@ -44,21 +44,26 @@ export default function ProductView(props) {
       }
    }, [quantity]);
 
-   useEffect(() => {
-      if (props.data.length > 0) {
-         let fitem = props.data.find(e => {
-            if (e.id.toString() === id) {
-               return e
-            } else {
-               return 0
-            }
-         })
 
-         if (fitem !== 0) {
-            setItem(fitem)
-         }
-      }
-   }, [props.data, id])
+   useEffect(() => {
+      Promise.resolve(props.data).then(data => {
+          if (Array.isArray(data) && data.length > 0) {
+            let fitem = data.find(e => {
+               if (e.id.toString() === id) {
+                  return e
+               } else {
+                  return 0
+               }
+            })
+   
+            if (fitem !== 0) {
+               setItem(fitem)
+            }
+          }
+      }).catch(error => {
+          console.error('Error with array:', error);
+      });
+  }, [props.data,id]);
 
    useEffect(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -67,12 +72,12 @@ export default function ProductView(props) {
    const request_cart = () => {
       if (!item || quantity.length === 0 || quantity === '0' || quantity === '0.') {
          return 1
-      } else {
+      } else { 
          let element = {
             id : item.id,
-            title:item.title,
+            name:item.name,
             description: item.description,
-            image: item.image,
+            imageUrl: item.imageUrl,
             quantity:quantity
          }
          props.addtocart(element)
@@ -86,7 +91,7 @@ export default function ProductView(props) {
       <section className="product-view_con">
          <main className="product-view">
             <div className="view_content">
-               <header className="view-title">{item ? item.title ? item.title : "Loading" : 'Loading'}</header>
+               <header className="view-title">{item ? item.name ? item.name : "Loading" : 'Loading'}</header>
                <main className="view-form">
                   <input id="form_title" name="form_title" value={quantity} onChange={e => quantity_change(e)} type="text" maxLength="10" className="view_form_input" />
                   <label htmlFor="form_title" className="form_title_label">Quantity in kilograms*</label>
@@ -96,7 +101,7 @@ export default function ProductView(props) {
             </div>
 
             <div className="view_picture">
-               <img className="view_picture_img" src={item ? item.image ? item.image : "Loading" : "Loading"} alt="request img" />
+               <img className="view_picture_img" src={item ? item.imageUrl ? item.imageUrl : "Loading" : "Loading"} alt="request img" />
             </div>
          </main>
          {cart !== "hidden" ? <Cart delete_from_cart={props.delete_from_cart} cartData={props.cartData} cart_visible={cart_visible} /> : ''}

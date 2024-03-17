@@ -10,19 +10,18 @@ export default class Products extends React.Component {
       }
    }
 
-   componentDidMount() {
+   async componentDidMount() {
       if (this.state.products_data.length === 0) {
-         this.setState({ products_data: this.props.products_data }, () => {
+         this.setState({ products_data: await this.props.products_data }, () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
          })
       }
    }
-   componentDidUpdate() {
+   async componentDidUpdate() {
       if (this.state.products_data.length === 0 && this.props.products_data.length !== 0) {
-         this.setState({ products_data: this.props.products_data }, () => {
+         this.setState({ products_data: await this.props.products_data }, () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
          })
       }
    }
@@ -33,9 +32,9 @@ export default class Products extends React.Component {
                Cereals
             </header>
             <main className="products_list">
-               {this.state.products_data.map((product, index) =>
+               {this.state.products_data.length > 0 ?this.state.products_data.map((product, index) =>
                   <ProductCard key={index} index={index} product={product} />
-               )}
+               ):""}
             </main>
             <div className="product_margin"></div>
          </div>

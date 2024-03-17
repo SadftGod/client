@@ -8,11 +8,11 @@ import Main from './pages/main/main';
 import Products from './pages/products/products';
 import Profile from './pages/profile/profile';
 import ProductView from './pages/product_view/productView';
-import products_data from './products.json'
 import { useState, useEffect } from 'react';
 import Admin from './pages/admin/admin';
 import Sliser from './pages/sliced/sliced';
 import AdminCheker from './pages/adminCheker/adminCheker';
+import cereal from './services/cerealsServices/cereal.service';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
 
    const addtocart = (item) => {
       setTimeout(() => {
-         let succes_menu = document.querySelector(".success_con")
+         let succes_menu = document.querySelector(".success_con_add")
          succes_menu.style.opacity = "100%"
          setTimeout(() => {
             succes_menu.style.opacity = "0"
@@ -43,8 +43,13 @@ function App() {
       setCartData(new_cart)
    }
 
+   const await_cereals = async()=>{
+      const response = await cereal.getCereal()
+      return response.data.cereals
+   }  
+
    useEffect(() => {
-      setProductsData(products_data.data)
+      setProductsData(await_cereals())
    }, []);
 
 

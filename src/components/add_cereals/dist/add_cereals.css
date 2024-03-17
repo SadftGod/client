@@ -195,3 +195,35 @@
   background: rgba(42,44,52,0.68);
   width: 50vw;
 }
+.admin_alert {
+  color: #f00;
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.description_counter {
+  position: absolute;
+  right: 0;
+  top: 2vh;
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #ffb75e;
+}
+.description_counter_zero {
+  position: absolute;
+  right: 0;
+  top: 2vh;
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}

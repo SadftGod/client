@@ -27,6 +27,8 @@ export default function Admin() {
       }
    },[nav]) 
 
+ 
+
    useEffect(()=>{
       let data = sessionStorage.getItem("dolynan-super_inf"); 
       if(data){

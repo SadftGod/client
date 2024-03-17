@@ -17,12 +17,12 @@ export default function Cart(props) {
                   <div key={e.id} className="cart_element">
                      <div className="cart_element_description">
                         <div className="cart_element_title">
-                           {e.title}
+                           {e.name}
                         </div>
                         <div className="cart_element_img_con">
-                           <img className="cart_element_img" src={e.image} alt="" />
+                           <img className="cart_element_img" src={e.imageUrl} alt="" />
                         </div>
-                     </div>
+                     </div> 
                      <div className="cart_element_quantity">
                         <div className="cart_element_quantity_text">
                            Quantity: {e.quantity}kg
