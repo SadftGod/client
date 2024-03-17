@@ -12,6 +12,7 @@ import products_data from './products.json'
 import { useState, useEffect } from 'react';
 import Admin from './pages/admin/admin';
 import Sliser from './pages/sliced/sliced';
+import AdminCheker from './pages/adminCheker/adminCheker';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
                <Route exact path="/products/:id" element={<ProductView delete_from_cart={delete_from_cart} cartData={cartData} addtocart={addtocart} data={data} />} />
                <Route exact path='/account' element={<Profile />} />
                <Route exact path='/adminpanel' element={<Admin />} />
+               <Route exact path='/admincheker' element={<AdminCheker />} />
                <Route exact path='/wrongUncough' element={<Sliser />} />
 
 

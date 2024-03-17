@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './dist/sliced.css'
 
 import { useNavigate } from "react-router-dom";
@@ -9,9 +9,10 @@ export default function Sliser(){
 
    const navigate = useNavigate();
 
-   const nav = (name) => {
+   const nav = useCallback((name) => {
       navigate(name);
-    };
+    },[navigate]) 
+    
    useEffect(()=>{
       setTimeout(()=>{
          setCounter(counter - 1)
@@ -19,7 +20,7 @@ export default function Sliser(){
       if(counter < 0){
          nav('/')
       }
-   },[counter])
+   },[counter,nav])
    return(
       <div className="banned_cont">
          <div className='red_banned'>WRONG USER or PASSCODE</div>
