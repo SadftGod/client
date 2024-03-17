@@ -105,8 +105,8 @@ export default class Slider extends React.Component {
 
             <div className="btn_bar_con">
                <div className="btn_bar">
-                  <div className="scroll_bottom">
-                     <img onClick={()=>{this.aboutUs()}} src={process.env.PUBLIC_URL + '/img/scroll_down.svg'} alt="" />
+                  <div onClick={()=>{this.aboutUs()}} className="scroll_bottom">
+                     <img  src={process.env.PUBLIC_URL + '/img/scroll_down.svg'} alt="" />
                   </div>
                   <div className="scroll_imgs">
                      <div onClick={() => {
