@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './dist/acc_data.css'
+import users from "../../services/user_services/user.service";
 
 export default function AccData(props) {
    const [acc_data, setAccData] = useState(undefined)
@@ -8,6 +9,15 @@ export default function AccData(props) {
    const [cname, setCompanyName] = useState("")
    const [phone, setPhone] = useState("")
 
+
+   const update_user = async(name, surname, phone, company_name, email)=>{
+      const response = await users.update_user(name, surname, phone, company_name, email)
+      props.setPrevToken(document.cookie.split("=")[1])
+      document.cookie ="dolyna-n=" + response.data.token
+   }
+   const post_update = ()=>{
+      update_user(fname, lname, phone, cname, props.email)
+   }
 
    useEffect(() => {
       if (props.account_data) {
@@ -48,7 +58,7 @@ export default function AccData(props) {
 
             <div className="acc_data_btn_con">
                <button className="acc_data_btn acc_data_cancel">Cancel</button>
-               <button className="acc_data_btn acc_data_save">Save</button>
+               <button onClick={()=>{post_update()}} className="acc_data_btn acc_data_save">Save</button>
             </div>
          </main>
       </div>

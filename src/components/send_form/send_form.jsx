@@ -1,5 +1,6 @@
 import React from "react";
 import './dist/send_form.css'
+import form from "../../services/form-services/form.service";
 
 export default class SendForm extends React.Component {
    constructor(props) {
@@ -12,6 +13,15 @@ export default class SendForm extends React.Component {
          message: ''
       }
    }
+
+   send_form = async(name,email,company,phone,message)=>{
+      if(name !== '' && email !== '' && company !== '' && phone !== '' && message !== ''){
+         const response = await form.contactUs(name,email,company,phone,message)
+         this.setState({name: '',email: '',company: '',phone: '',message: ''})
+         return response
+      }
+   }
+
    render() {
       return (
          <div className="send_form_con">
@@ -59,7 +69,7 @@ export default class SendForm extends React.Component {
                   <label htmlFor="contact_message" className="dynamicLabelBig">Message*</label>
                </div>
 
-               <div className="button_container_send">
+               <div onClick={()=>{this.send_form(this.state.name,this.state.email,this.state.company,this.state.phone,this.state.message)}} className="button_container_send">
                   <button className="send_contact_form_hover">Send</button>
                   <button className="send_contact_form">Send</button>
                </div>

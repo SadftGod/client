@@ -10,29 +10,54 @@ export default class Profile extends React.Component {
       super(props);
       this.state = {
          account_data: undefined,
+         token:undefined,
+         prevToken:undefined,
+         email:""
       }
    }
 
+   setEmailProps = (email)=>{
+      this.setState({email: email})
+   }
+
+
+   setPrevToken = (token)=>{
+      this.setState({prevToken:token},()=>{
+      })
+   } 
+
    jwtUncode = () =>{
-      const token = document.cookie
-      if(token){
-         if (token.split("=")[0] === "dolyna-n") {
-            const uncoded = jwtDecode(token.split("=")[1]);
+      if(this.state.token){
+         if (this.state.token.split("=")[0] === "dolyna-n") {
+            const uncoded = jwtDecode(this.state.token.split("=")[1]);
             this.setState({account_data: uncoded})
          }
       }
    }
+   token_stater = () =>{
+         const token_cookie = document.cookie
+         this.setState({token:token_cookie},()=>{
+            this.jwtUncode()
+            this.setState({prevToken:this.state.token})
+         })
+   }
+   componentDidUpdate(prevProps, prevState) {
+      if(this.state.token !== prevState.token || this.state.token === undefined || this.state.token !== this.state.prevToken){
+         this.token_stater()
+      }
+   }
+
 
    componentDidMount(){
       window.scrollTo({ top: 0, behavior: 'smooth' }); 
-      this.jwtUncode()
+      this.token_stater()
    }
    render() { return(
       <main className="profile_con">
          <AccountHeader account_data={this.state.account_data} page_slider={this.page_slider} />
          <section className="profile_main">
-            <Overview account_data={this.state.account_data} />
-            <AccData account_data={this.state.account_data} />
+            <Overview setEmailProps={this.setEmailProps} account_data={this.state.account_data} />
+            <AccData email={this.state.email} setPrevToken={this.setPrevToken} account_data={this.state.account_data} />
 
          </section>
       </main>

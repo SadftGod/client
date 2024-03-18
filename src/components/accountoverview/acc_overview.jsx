@@ -24,7 +24,9 @@ export default class Overview extends React.Component {
    }
    componentDidUpdate(prevProp,prevState){
       if(this.props.account_data !== prevProp.account_data){
-         this.setState({email: this.props.account_data.email , phone: this.props.account_data.phone})
+         this.setState({email: this.props.account_data.email , phone: this.props.account_data.phone},()=>{
+            this.props.setEmailProps(this.state.email)
+         })
       }
    }
 
@@ -39,7 +41,7 @@ export default class Overview extends React.Component {
                      <img className="general_call_icon" src={process.env.PUBLIC_URL + '/img/call.svg'} alt="" />
                   </div>
                   <div className="general_input_con">
-                     <input value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value }) }} className="general_info_input" type="email" />
+                     <input value={this.state.email} onChange={(e) => { this.setState({ email: e.target.value },()=>{this.props.setEmailProps(this.state.email)}) }} className="general_info_input" type="email" />
                      <img className="general_call_icon" src={process.env.PUBLIC_URL + '/img/email.svg'} alt="" />
                   </div>
                </div>
