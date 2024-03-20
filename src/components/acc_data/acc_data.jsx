@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import './dist/acc_data.css'
 import users from "../../services/user_services/user.service";
+import { useNavigate } from "react-router-dom";
+import SuccessChangeUserInfo from "../../modal-menu/success_change_user_info/success_change_user_info";
+
 
 export default function AccData(props) {
    const [acc_data, setAccData] = useState(undefined)
@@ -9,11 +12,32 @@ export default function AccData(props) {
    const [cname, setCompanyName] = useState("")
    const [phone, setPhone] = useState("")
 
+   const [fnameStatic, setFirstNameStatic] = useState("")
+   const [lnameStatic, setLastNameStatic] = useState("")
+   const [cnameStatic, setCompanyNameStatic] = useState("")
+   const [phoneStatic, setPhoneStatic] = useState("")
+
+
+   const navigate = useNavigate();
+
+   const nav = (name) => {
+      navigate(name);
+    };
 
    const update_user = async(name, surname, phone, company_name, email)=>{
-      const response = await users.update_user(name, surname, phone, company_name, email)
-      props.setPrevToken(document.cookie.split("=")[1])
-      document.cookie ="dolyna-n=" + response.data.token
+      const response = await users.update_user(name, surname, phone, company_name, email,nav)
+      if(response){
+         document.querySelector(".success-change-user-info_con").style.opacity = "1";
+         document.querySelector(".success-change-user-info_con").style.right = "0";
+         setTimeout(() => {
+            document.querySelector(".success-change-user-info_con").style.opacity = "0";
+            document.querySelector(".success-change-user-info_con").style.right = "-20vw";
+         }, 3000);
+         props.setPrevToken(document.cookie.split("=")[1])
+         document.cookie ="dolyna-n=" + response.data.token
+      }else{
+         document.cookie = "dolyna-n=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
    }
    const post_update = ()=>{
       update_user(fname, lname, phone, cname, props.email)
@@ -31,8 +55,21 @@ export default function AccData(props) {
          setLastName(acc_data.surname)
          setCompanyName(acc_data.company_name)
          setPhone(acc_data.phone)
+
+         setFirstNameStatic(acc_data.name)
+         setLastNameStatic(acc_data.surname)
+         setCompanyNameStatic(acc_data.company_name)
+         setPhoneStatic(acc_data.phone)
       }
    }, [acc_data])
+
+
+   const clearChanges = ()=>{
+      setFirstName(fnameStatic)
+      setLastName(lnameStatic)
+      setCompanyName(cnameStatic)
+      setPhone(phoneStatic)
+   }
 
    return (
       <div className="acc_data">
@@ -57,10 +94,11 @@ export default function AccData(props) {
             </div>
 
             <div className="acc_data_btn_con">
-               <button className="acc_data_btn acc_data_cancel">Cancel</button>
+               <button onClick={()=>{clearChanges()}} className="acc_data_btn acc_data_cancel">Cancel</button>
                <button onClick={()=>{post_update()}} className="acc_data_btn acc_data_save">Save</button>
             </div>
          </main>
+         <SuccessChangeUserInfo />
       </div>
    )
 }

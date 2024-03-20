@@ -43,6 +43,7 @@
   align-content: flex-end;
   flex-flow: column nowrap;
   gap: 5.95%;
+  position: relative;
 }
 .contact_fields_con {
   width: 45.85448%;
@@ -233,4 +234,15 @@
   width: 28.88888%;
   height: 70.8%;
   overflow: hidden;
+}
+.error_message_send_form {
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #f00;
+  position: absolute;
+  top: 35vh;
 }

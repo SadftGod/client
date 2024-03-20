@@ -21,7 +21,7 @@ const get_updates = async () => {
 }
 
 
-const update_user = async (name, surname, phone, company_name, email) => {
+const update_user = async (name, surname, phone, company_name, email,nav) => {
    try {
       const token = document.cookie
       if(token){
@@ -40,8 +40,10 @@ const update_user = async (name, surname, phone, company_name, email) => {
          }
       }
    } catch (error) {
-       console.error('Something gone wrong:', error);
-       throw error; 
+       console.error('Something gone wrong:', error.response.data);
+       if(error.response.data === "Server error: jwt expired"){
+         nav('/authorization')
+       }
    }
 }
 

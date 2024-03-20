@@ -13,6 +13,7 @@ import Admin from './pages/admin/admin';
 import Sliser from './pages/sliced/sliced';
 import AdminCheker from './pages/adminCheker/adminCheker';
 import cereal from './services/cerealsServices/cereal.service';
+import RecoverMenu from './components/recover_menu/recover_menu';
 
 
 function App() {
@@ -45,7 +46,12 @@ function App() {
 
    const await_cereals = async()=>{
       const response = await cereal.getCereal()
-      return response.data.cereals
+      if (response){
+         return response.data.cereals
+      }else{
+         return []
+      }
+      
    }  
 
    useEffect(() => {
@@ -68,6 +74,8 @@ function App() {
                <Route exact path='/adminpanel' element={<Admin />} />
                <Route exact path='/admincheker' element={<AdminCheker />} />
                <Route exact path='/wrongUncough' element={<Sliser />} />
+               <Route exact path='/recover/*' element={<RecoverMenu />} />
+
 
 
             </Routes>

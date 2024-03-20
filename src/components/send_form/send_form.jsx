@@ -10,15 +10,68 @@ export default class SendForm extends React.Component {
          email: '',
          company: '',
          phone: '',
-         message: ''
+         message: '',
+         errorMessage: ""
       }
    }
 
-   send_form = async(name,email,company,phone,message)=>{
-      if(name !== '' && email !== '' && company !== '' && phone !== '' && message !== ''){
-         const response = await form.contactUs(name,email,company,phone,message)
-         this.setState({name: '',email: '',company: '',phone: '',message: ''})
-         return response
+   all_red = () => {
+
+      let nameI = document.getElementById("contact_name")
+      let emailI = document.getElementById("contact_email")
+
+      let companyI = document.getElementById("contact_company")
+      let phoneI = document.getElementById("contact_phone")
+
+      let messageI = document.getElementById("contact_message")
+
+      nameI.style.borderBottom = 'solid 2px red'
+      emailI.style.borderBottom = 'solid 2px red'
+      phoneI.style.borderBottom = 'solid 2px red'
+      companyI.style.borderBottom = 'solid 2px red'
+      messageI.style.borderBottom = 'solid 2px red'
+
+      setTimeout(() => {
+         nameI.style.borderBottom = 'solid 2px #D9D9D9'
+         emailI.style.borderBottom = 'solid 2px #D9D9D9'
+         phoneI.style.borderBottom = 'solid 2px #D9D9D9'
+         companyI.style.borderBottom = 'solid 2px #D9D9D9'
+         messageI.style.borderBottom = 'solid 2px #D9D9D9'
+         this.setState({ errorMessage: "" })
+
+      }, 4000);
+
+   }
+   send_form = async (name, email, company, phone, message) => {
+      if (name !== '' && email !== '' && company !== '' && phone !== '' && message !== '') {
+         if (name.length > 1) {
+            if (email.includes('@')) {
+               if (/[0-9]+/.test(phone)) {
+                  const response = await form.contactUs(name, email, company, phone, message)
+                  this.setState({ name: '', email: '', company: '', phone: '', message: '' })
+                  return response
+               } else {
+                  this.setState({ errorMessage: "Remove letters from number" })
+
+
+                  this.all_red()
+
+               }
+            } else {
+               this.setState({ errorMessage: "Email must have @" })
+               this.all_red()
+
+            }
+
+         } else {
+            this.setState({ errorMessage: "Name is too short" })
+            this.all_red()
+
+         }
+
+      } else {
+         this.setState({ errorMessage: "data can not be empty" })
+         this.all_red()
       }
    }
 
@@ -68,8 +121,10 @@ export default class SendForm extends React.Component {
                      }} placeholder="Message" id='contact_message' name='contact_message' className='dynamicInputBig' type="text" required />
                   <label htmlFor="contact_message" className="dynamicLabelBig">Message*</label>
                </div>
+               <div className="error_message_send_form">{this.state.errorMessage}</div>
 
-               <div onClick={()=>{this.send_form(this.state.name,this.state.email,this.state.company,this.state.phone,this.state.message)}} className="button_container_send">
+
+               <div onClick={() => { this.send_form(this.state.name, this.state.email, this.state.company, this.state.phone, this.state.message) }} className="button_container_send">
                   <button className="send_contact_form_hover">Send</button>
                   <button className="send_contact_form">Send</button>
                </div>
@@ -82,6 +137,7 @@ export default class SendForm extends React.Component {
                   style={{ border: 0 }}
                   title="googleMap" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
+
          </div>
       )
    }
