@@ -77,9 +77,14 @@
   position: absolute;
   right: 1vw;
 }
-.acc_overview .last_request {
+.acc_overview .general_info_request {
+  overflow: scroll;
   width: 100%;
   height: 78%;
+}
+.acc_overview .general_info_request .last_request {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -88,14 +93,14 @@
   gap: 7.3611vw;
   overflow: hidden;
 }
-.acc_overview .last_request .last_req_img_con {
+.acc_overview .general_info_request .last_request .last_req_img_con {
   width: 18.65vh;
   height: 18.65vh;
 }
-.acc_overview .last_request .last_req_img_con .last_req_img {
+.acc_overview .general_info_request .last_request .last_req_img_con .last_req_img {
   width: 100%;
 }
-.acc_overview .last_request .last_req_text {
+.acc_overview .general_info_request .last_request .last_req_text {
   margin-top: 4%;
   display: flex;
   justify-content: center;
@@ -109,4 +114,12 @@
   font-weight: 500;
   font-size: 1.11rem;
   line-height: 1.3rem;
+}
+.total_quote_quntity {
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2rem;
 }

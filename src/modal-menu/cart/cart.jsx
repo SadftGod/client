@@ -2,9 +2,19 @@ import React from "react";
 import './dist/cart.css';
 import BlackBlock from "../blackBlock/blackBlock";
 import SuccessCartAdd from "../successAdded/cartSuccess";
+import quote from "../../services/qoute_serivices/quote.service";
 
 
 export default function Cart(props) {
+
+   const req_a_qoute = async() => {
+      const response = await quote.makequote(props.cartData)
+
+      if(response){
+         document.cookie = "dolyna-n=" + response.data.token;
+         return response
+      }
+   }
 
    return (
       <section className="cart_con">
@@ -41,7 +51,7 @@ export default function Cart(props) {
                   Kilos in total:{props.cartData.reduce((sum, item) => sum + parseFloat(item.quantity), 0)} kg
                </div>
                {props.cartData.length > 0 ?<div className="requestQuote_con">
-                  <button className="requestQuote">Request a quote</button>
+                  <button onClick={()=>{req_a_qoute()}} className="requestQuote">Request a quote</button>
                </div>:""}
                
             </footer>

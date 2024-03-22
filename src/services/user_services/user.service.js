@@ -49,7 +49,8 @@ const update_user = async (name, surname, phone, company_name, email,nav) => {
 
 
 const users = {
-   update_user
+   update_user,
+   get_updates
 }
 
 export default users

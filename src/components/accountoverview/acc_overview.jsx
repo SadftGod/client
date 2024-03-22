@@ -8,9 +8,20 @@ export default class Overview extends React.Component {
          phone: "",
          email: '',
          last_req:['wheet','corn'],
-         quantity: 2
+         quantity: 2,
+         cart : [],
+         total_q : 0
       }
    }
+
+   totalQ = ()=>{
+      let total = 0 ;
+      this.state.cart.map(e=>(
+         total += parseFloat(e.quantity) 
+      ))
+      this.setState({total_q: total})
+   }
+
 
    phone_stabilizatior = (e) => {
       let input = e.target.value
@@ -26,6 +37,9 @@ export default class Overview extends React.Component {
       if(this.props.account_data !== prevProp.account_data){
          this.setState({email: this.props.account_data.email , phone: this.props.account_data.phone},()=>{
             this.props.setEmailProps(this.state.email)
+         })
+         this.setState({cart : this.props.account_data.last_order },()=>{
+            this.totalQ() 
          })
       }
    }
@@ -48,16 +62,31 @@ export default class Overview extends React.Component {
             </section>
             <section className="acc_general_info">
                <div className="general_info_title">Your last requests for quotation</div>
-               <main className="last_request">
-                  <div className="last_req_text">
-                  <div> Product {this.state.last_req.map(e=>e + ' ')}</div>
-                  <div> Quantity {this.state.quantity} kg</div>
+               <div className="general_info_request">
+               {this.state.cart.length > 0?
+                  this.state.cart.map(e => (
+                     <main key={e.id} className="last_request">
+                     <div className="last_req_text">
+                     <div> {e.name} </div>
+                     <div> Quantity {e.quantity} kg</div>
+   
+                     </div>
+                     <div className="last_req_img_con">
+                        <img className="last_req_img" src={e.imageUrl} alt="" />
+                     </div>
+                  </main>
 
-                  </div>
-                  <div className="last_req_img_con">
-                     <img className="last_req_img" src={process.env.PUBLIC_URL + '/img/products/wheet.png'} alt="" />
-                  </div>
-               </main>
+                  ))
+                  :''
+               }
+
+               <div className="total_quote_quntity">
+                  Total {this.state.total_q}
+               </div>
+               </div>
+               
+             
+              
             </section>
          </div>
       )
