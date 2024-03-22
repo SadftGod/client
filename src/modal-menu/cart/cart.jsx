@@ -12,6 +12,8 @@ export default function Cart(props) {
 
       if(response){
          document.cookie = "dolyna-n=" + response.data.token;
+         props.cart_visible()
+
          return response
       }
    }
