@@ -94,7 +94,7 @@ function FactsAndFeatures() {
                   <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/second.png'} alt="" />
                </div>
                <div id='faf_img_con3' className="faf_img_con">
-                  <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/third.png'} alt="" />
+                  <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/third.jpg'} alt="" />
                </div>
                <div id='faf_img_con4' className="faf_img_con">
                   <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/forth.png'} alt="" />
