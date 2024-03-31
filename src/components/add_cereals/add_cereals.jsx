@@ -81,7 +81,7 @@ export default function AddCereals(props) {
                <div className={decription.length>0?"description_counter":"description_counter_zero"}>{decription.length}</div>
             </div>
             <div className="addImg_cereal_con">
-               <label className={image?"adminLabel_accepted":"adminLabel_accept"} htmlFor="admin_cereal_img">{image?image.name:"Добавить изображение (форматы: png, jpeg, jpg)"}</label>
+               <label className={image?"adminLabel_accepted":"adminLabel_accept"} htmlFor="admin_cereal_img">{image?image.name:"Додати фото(формати: png, jpeg, jpg)"}</label>
                <input onChange={(e)=>{setImage(e.target.files[0])}} type="file" id="admin_cereal_img" name="admin_cereal_img" accept="image/png, image/jpeg" className="img_input"/>
             </div>
             <div className="admin_buttons_block">

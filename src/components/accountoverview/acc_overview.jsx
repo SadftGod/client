@@ -16,9 +16,13 @@ export default class Overview extends React.Component {
 
    totalQ = ()=>{
       let total = 0 ;
-      this.state.cart.map(e=>(
-         total += parseFloat(e.quantity) 
-      ))
+      if(this.state.cart.length > 0){
+         this.state.cart.map(e=>(
+            total += parseFloat(e.quantity) 
+         ))
+
+      }
+     
       this.setState({total_q: total})
    }
 
