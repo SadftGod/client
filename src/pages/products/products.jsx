@@ -29,7 +29,7 @@ export default class Products extends React.Component {
       return (
          <div className="products_con">
             <header className="products_title">
-               Cereals
+               {this.props.languageRed === "En"?"Cereals":"Зерно"}
             </header>
             <main className="products_list">
                {this.state.products_data.length > 0 ?this.state.products_data.map((product, index) =>

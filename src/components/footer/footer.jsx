@@ -1,11 +1,12 @@
 import React from 'react';
 import './dist/footer.css'
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 export default function Footer() {
    const navigate = useNavigate();
-
+   const languageRed = useSelector((state) => state.language.value);
    const nav = (name) => {
       navigate(name);
     };
@@ -45,23 +46,23 @@ export default function Footer() {
                   <img className="short_logo" src={process.env.PUBLIC_URL + '/img/short_logo.svg'} alt="" />
                </div>
                <div className="location_con">
-                  <div className="location"><div>Location:</div>
-                     <div>24413, v. Balanivka, r. Vinnytsia</div>
+                  <div className="location"><div>{languageRed==="EN"?"Location":"Місцезнаходження"}:</div>
+                     <div>{languageRed==="EN"?"24413, с. Баланівка, обл. Вінниця":""}</div>
                   </div>
                   <div className="contact">
-                     <div>Contact:</div>
+                     <div>{languageRed==="EN"?"Contact":"Контакти"}</div>
                      <a className='user_links' href="tel:+380961126340"><div>+380961126340</div></a>
                      <div>dolynan.grainsupplier@gmail.com</div>
                   </div>
                </div>
                <div className="footer_navigator">
-                  <div onClick={()=>{aboutUs()}}  className="footer_navigator_e">About us</div>
-                  <div onClick={()=>{nav('/products')}} className="footer_navigator_e">Our products</div>
-                  <div onClick={()=>{ContactUs()}} className="footer_navigator_e">Contact us</div>
-                  <div onClick={()=>{nav('/account')}}  className="footer_navigator_e">My account</div>
+                  <div onClick={()=>{aboutUs()}}  className="footer_navigator_e">{languageRed==="EN"?"About us":"Про нас"}</div>
+                  <div onClick={()=>{nav('/products')}} className="footer_navigator_e">{languageRed==="EN"?"Our products":"Наші продукти"}</div>
+                  <div onClick={()=>{ContactUs()}} className="footer_navigator_e">{languageRed==="EN"?"Our products":"Написати нам"}x</div>
+                  <div onClick={()=>{nav('/account')}}  className="footer_navigator_e">{languageRed==="EN"?"My account":"Мій акаунт"}</div>
                </div>
                <div className="footer_contactus">
-                  <div className="footer_contactus_title">Follow us:</div>
+                  <div className="footer_contactus_title">{languageRed==="EN"?"Follow us:":"Стежіть за нами:"}</div>
                   <div className="media_net">
                      <img className="links_img" src={process.env.PUBLIC_URL + '/img/links/inst.svg'} alt="" />
                      <img className="links_img" src={process.env.PUBLIC_URL + '/img/links/facebook.svg'} alt="" />

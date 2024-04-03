@@ -15,11 +15,14 @@ import AdminCheker from './pages/adminCheker/adminCheker';
 import cereal from './services/cerealsServices/cereal.service';
 import RecoverMenu from './components/recover_menu/recover_menu';
 
+import { useSelector } from 'react-redux';
 
 function App() {
    const [data, setProductsData] = useState([])
    const [cartData, setCartData] = useState([])
+   const languageRed = useSelector((state) => state.language.value);
 
+  
    const addtocart = (item) => {
       setTimeout(() => {
          let succes_menu = document.querySelector(".success_con_add")
@@ -44,15 +47,15 @@ function App() {
       setCartData(new_cart)
    }
 
-   const await_cereals = async()=>{
+   const await_cereals = async () => {
       const response = await cereal.getCereal()
-      if (response){
+      if (response) {
          return response.data.cereals
-      }else{
+      } else {
          return []
       }
-      
-   }  
+
+   }
 
    useEffect(() => {
       setProductsData(await_cereals())
@@ -68,7 +71,7 @@ function App() {
                <Route exact path='/' element={<Renavigator />} />
                <Route exact path='/authorization' element={<Authorization />} />
                <Route exact path='/main' element={<Main />} />
-               <Route exact path='/products' element={<Products products_data={data} />} />
+               <Route exact path='/products' element={<Products languageRed={languageRed} products_data={data} />} />
                <Route exact path="/products/:id" element={<ProductView delete_from_cart={delete_from_cart} cartData={cartData} addtocart={addtocart} data={data} />} />
                <Route exact path='/account' element={<Profile />} />
                <Route exact path='/adminpanel' element={<Admin />} />
@@ -82,6 +85,8 @@ function App() {
             <Footer />
          </Router>
       </div>
+
+
    );
 }
 
