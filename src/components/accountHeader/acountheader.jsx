@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import './dist/accountheader.css'
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 export default function AccountHeader(props) {
    const [slider_pos, setSlider] = useState("acc_data")
    const navigate = useNavigate();
    const [acc_data,setAccData] = useState(undefined)
+   const languageRed = useSelector((state) => state.language.value);
 
    const nav = useCallback((name) => {
       navigate(name);
@@ -64,14 +66,14 @@ export default function AccountHeader(props) {
 
    return (
       <header className="accountheader">
-         <div className="accountheader_title">Welcome, {acc_data?acc_data.name +" " + acc_data.surname:"LOGIN"}</div>
+         <div className="accountheader_title">{languageRed === "EN"?"Welcome":"Доброго дня"}, {acc_data?acc_data.name +" " + acc_data.surname:"LOGIN"}</div>
          <div className="header_slider_menu">
             <div className="slider_menu_con">
-               <div onClick={() => { setSlider("acc_data"); }} className="header_point">Overview</div>
-               <div onClick={() => { setSlider("overview") }} className="header_point">Account Data</div>
+               <div onClick={() => { setSlider("acc_data"); }} className="header_point">{languageRed === "EN"?"Overview":"Огляд"}</div>
+               <div onClick={() => { setSlider("overview") }} className="header_point">{languageRed === "EN"?"Account Data":"Дані облікового запису"}</div>
                <div className="header_line_slider"></div>
             </div>
-            <div onClick={() => { logout() }} className="log_out_btn">Logout</div>
+            <div onClick={() => { logout() }} className="log_out_btn">{languageRed === "EN"?"Logout":"Вийти"}</div>
 
          </div>
       </header>

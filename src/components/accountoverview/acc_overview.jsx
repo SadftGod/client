@@ -52,7 +52,7 @@ export default class Overview extends React.Component {
       return (
          <div className="acc_overview">
             <section className="acc_general_info">
-               <div className="general_info_title">General contact</div>
+               <div className="general_info_title">{this.props.languageRed === "EN"?"General contact":"Головна інформація"}</div>
                <div className="general_info_input_con">
                   <div className="general_input_con">
                      <input value={this.state.phone} onChange={this.phone_stabilizatior} className="general_info_input" type="text" maxLength="17" />
@@ -65,14 +65,14 @@ export default class Overview extends React.Component {
                </div>
             </section>
             <section className="acc_general_info">
-               <div className="general_info_title">Your last requests for quotation</div>
+               <div className="general_info_title">{this.props.languageRed === "EN"?"Your last requests for quotation":"Ваші останні запити:"}</div>
                <div className="general_info_request">
                {this.state.cart.length > 0?
                   this.state.cart.map(e => (
                      <main key={e.id} className="last_request">
                      <div className="last_req_text">
                      <div> {e.name} </div>
-                     <div> Quantity {e.quantity} kg</div>
+                     <div> {this.props.languageRed === "EN"?"Quantity":"Кількість"} {e.quantity} kg</div>
    
                      </div>
                      <div className="last_req_img_con">
@@ -85,7 +85,7 @@ export default class Overview extends React.Component {
                }
 
                <div className="total_quote_quntity">
-                  Total {this.state.total_q}
+               {this.props.languageRed === "EN"?"Total":"Загалом"} {this.state.total_q}
                </div>
                </div>
                

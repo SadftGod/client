@@ -54,9 +54,9 @@ export default class Profile extends React.Component {
    }
    render() { return(
       <main className="profile_con">
-         <AccountHeader account_data={this.state.account_data} page_slider={this.page_slider} />
+         <AccountHeader  account_data={this.state.account_data} page_slider={this.page_slider} />
          <section className="profile_main">
-            <Overview setEmailProps={this.setEmailProps} account_data={this.state.account_data} />
+            <Overview languageRed={this.props.languageRed}  setEmailProps={this.setEmailProps} account_data={this.state.account_data} />
             <AccData email={this.state.email} setPrevToken={this.setPrevToken} account_data={this.state.account_data} />
 
          </section>

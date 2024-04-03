@@ -73,7 +73,7 @@ function App() {
                <Route exact path='/main' element={<Main />} />
                <Route exact path='/products' element={<Products languageRed={languageRed} products_data={data} />} />
                <Route exact path="/products/:id" element={<ProductView delete_from_cart={delete_from_cart} cartData={cartData} addtocart={addtocart} data={data} />} />
-               <Route exact path='/account' element={<Profile />} />
+               <Route exact path='/account' element={<Profile languageRed={languageRed}  />} />
                <Route exact path='/adminpanel' element={<Admin />} />
                <Route exact path='/admincheker' element={<AdminCheker />} />
                <Route exact path='/wrongUncough' element={<Sliser />} />
