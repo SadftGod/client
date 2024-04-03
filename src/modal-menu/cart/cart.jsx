@@ -3,12 +3,18 @@ import './dist/cart.css';
 import BlackBlock from "../blackBlock/blackBlock";
 import SuccessCartAdd from "../successAdded/cartSuccess";
 import quote from "../../services/qoute_serivices/quote.service";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Cart(props) {
+   const navigate = useNavigate();
+
+   const nav = (name) => {
+      navigate(name);
+    };
 
    const req_a_qoute = async() => {
-      const response = await quote.makequote(props.cartData)
+      const response = await quote.makequote(props.cartData,nav)
 
       if(response){
          document.cookie = "dolyna-n=" + response.data.token;

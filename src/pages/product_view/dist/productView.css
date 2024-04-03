@@ -134,3 +134,27 @@
 .view_picture_img {
   height: 100%;
 }
+.arrow_back_to_cereals {
+  background: #ffb75e;
+  width: 2vw;
+  height: 2vw;
+  position: absolute;
+  top: 12vh;
+  left: 2vw;
+  border-radius: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  z-index: 0;
+}
+.arrow_back_button {
+  width: 50%;
+  height: 70%;
+  min-width: 50%;
+  background: #fff;
+  clip-path: polygon(0 50%, 78% 0, 33% 50%, 78% 100%);
+  border-radius: 0.5vh;
+}

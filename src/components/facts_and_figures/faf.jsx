@@ -33,7 +33,7 @@ function FactsAndFeatures() {
          faf_img_con3.style.width = "0"
          faf_img_con4.style.width = "0"
          setTitle("Our offer")
-         setDescription("We specialize in cultivating five distinct types of grains to meet the diverse needs of our customers: wheat, barley, sunflower, soy and corn. Our commitment to sustainability, quality assurance, and customer satisfaction underscores every aspect of our agricultural practices. Explore our selection of grains and immerse yourself in the excellence that defines our farm.")
+         setDescription("We specialize in growing five types of grains – wheat, barley, sunflower, soy, and corn – to meet our customers' different needs. Our farm is dedicated to sustainability, quality, and ensuring customer satisfaction in all our endeavors. Explore our selection of grains. ")
       } else if (yellowPos === 3) {
          yellow_block.style.left = "53.3%"
          yellow_block.style.width = "15%"
@@ -41,8 +41,8 @@ function FactsAndFeatures() {
          faf_img_con2.style.width = "0"
          faf_img_con3.style.width = "100%"
          faf_img_con4.style.width = "0"
-         setTitle(<div>Growing a sustainable future:<br/></div> )
-         setDescription("Our company places great emphasis on preserving nature and promoting ecology. We carefully ensure that our agricultural practices are in harmony with the environment. The preservation of our natural surroundings is of utmost importance to us and is reflected in every aspect of our operation.")
+         setTitle(<div>Verified quality:<br/></div> )
+         setDescription("We are convinced that certification is the effective tool in our industry, enabling successful and fair economic activity. Therefore, we are adjusting our business to meet quality criteria. This ensures that we meet industry standards and deliver products to our valued customers.")
       } else if (yellowPos === 4) {
          yellow_block.style.width = "19%"
          yellow_block.style.left = "71%"
@@ -94,7 +94,7 @@ function FactsAndFeatures() {
                   <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/second.png'} alt="" />
                </div>
                <div id='faf_img_con3' className="faf_img_con">
-                  <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/third.jpg'} alt="" />
+                  <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/third.png'} alt="" />
                </div>
                <div id='faf_img_con4' className="faf_img_con">
                   <img className="faf_img" src={process.env.PUBLIC_URL + '/img/facts/forth.png'} alt="" />

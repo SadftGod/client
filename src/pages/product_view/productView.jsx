@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import './dist/productView.css'
 import { useParams } from 'react-router-dom';
 import Cart from "../../modal-menu/cart/cart";
+import { useNavigate } from "react-router-dom";
+
 
 export default function ProductView(props) {
    const { id } = useParams();
@@ -9,6 +11,13 @@ export default function ProductView(props) {
    const [item, setItem] = useState(null)
 
    const [cart, setCart] = useState("hidden")
+
+   
+   const navigate = useNavigate();
+
+   const nav = (name) => {
+      navigate(name);
+    };
 
    const quantity_change = (e) => {
       let filter_val = e.target.value;
@@ -105,6 +114,9 @@ export default function ProductView(props) {
             </div>
          </main>
          {cart !== "hidden" ? <Cart delete_from_cart={props.delete_from_cart} cartData={props.cartData} cart_visible={cart_visible} /> : ''}
+         <div onClick={()=>{nav("/products")}} className="arrow_back_to_cereals">
+            <div className="arrow_back_button"></div>
+         </div>
       </section>
    )
 }

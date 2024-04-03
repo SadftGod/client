@@ -131,7 +131,7 @@ export default class SendForm extends React.Component {
             </div>
             <div className="map_con">
                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d84736.52543485665!2d29.363457314976472!3d48.417829080938226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cda35fdb2775af%3A0x441d91c06f0d93aa!2z0JHQsNC70LDQvdC-0LLQutCwLCDQktC40L3QvdC40YbQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDI0NDEz!5e0!3m2!1sru!2sua!4v1709903860704!5m2!1sru!2sua"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d84736.52543485665!2d29.363457314976472!3d48.417829080938226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cda35fdb2775af%3A0x441d91c06f0d93aa!2z0JHQsNC70LDQvdC-0LLQutCwLCDQktC40L3QvdC40YbQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDI0NDEz!5e0!3m2!1sua!2sen!4v1709903860704!5m2!1sua!2sen"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

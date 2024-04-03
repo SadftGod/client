@@ -23,7 +23,8 @@ const get_updates = async () => {
 }
 
 
-const makequote = async (cart) => {
+
+const makequote = async (cart,nav) => {
    const token = document.cookie
 
    if (token) {
@@ -37,6 +38,7 @@ const makequote = async (cart) => {
       }
    } else {
       console.log("Make login")
+      nav("/authorization")
    }
   
 }

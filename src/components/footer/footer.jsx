@@ -46,12 +46,12 @@ export default function Footer() {
                </div>
                <div className="location_con">
                   <div className="location"><div>Location:</div>
-                     <div>24413, v. Balanivka</div>
+                     <div>24413, v. Balanivka, r. Vinnytsia</div>
                   </div>
                   <div className="contact">
                      <div>Contact:</div>
                      <a className='user_links' href="tel:+380961126340"><div>+380961126340</div></a>
-                     <div>------------@gmail.com</div>
+                     <div>dolynan.grainsupplier@gmail.com</div>
                   </div>
                </div>
                <div className="footer_navigator">
