@@ -104,4 +104,4 @@ export default function AccData(props) {
          <SuccessChangeUserInfo />
       </div>
    )
-}
+} 
