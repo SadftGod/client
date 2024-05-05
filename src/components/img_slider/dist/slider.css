@@ -131,6 +131,7 @@
 .connect_to_sap img {
   width: 60%;
   height: 60%;
+  margin-top: -10%;
 }
 .connect_to_sap:hover {
   border: 1px solid #fff;

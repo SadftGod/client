@@ -1,0 +1,52 @@
+@import '../../modules/basic'
+
+.chatAI-box
+   sizer(0,87.46vh) //39.44vw
+   background: white
+   position: fixed 
+   top 11.5vh
+   transition .8s
+   right: 0
+   z-index 10
+   border-radius: 1vh  0 0 1vh
+   box-shadow: -15px 4px 15px 0 rgba(0, 0, 0, 0.2);
+   box-sizing: border-box
+   padding 0 //0 13px 
+.chatAI-background
+   position: absolute
+   top 0
+   sizer(100%,100%)
+   flexer(c,c,rn)
+   img 
+      width: 90%
+      user-drag : none
+      user-select: none
+      -moz-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      filter: blur(.9vh);
+.chatAI-header
+   padding: 27px 0 27px 15px
+   box-sizing: border-box
+   fonter(700,1rem,1.2rem)
+   sizer(100%,auto)
+   flexer(sb,c,rn)
+   position relative
+   z-index: 11
+.chatAI-arrow-back
+   background: y 
+   border-radius: 15vh
+   sizer(4vh,4vh)
+   flexer(c,c,rn)
+   transition: .4s
+   opacity 70%
+   .chatAI-arrow
+      background: white
+      sizer(2vh,2vh)
+      clip-path: polygon(0 50%, 78% 0, 33% 50%, 78% 100%);
+      transition: .4s
+   &:hover
+      opacity 100%
+      .chatAI-arrow
+         transform: rotate(180deg)
