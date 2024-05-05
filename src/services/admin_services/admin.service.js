@@ -14,11 +14,13 @@ const admin_compare = async (key) => {
 }
 
 
-const add_cereal = async (name, description, image) => {
+const add_cereal = async (name_ua,name_en, description_ua,description_en, image) => {
    try {
       const formData = new FormData();
-      formData.append('name', name);
-      formData.append('description', description);
+      formData.append('name_ua', name_ua);
+      formData.append('name_en', name_en);
+      formData.append('description_ua', description_ua);
+      formData.append('description_en', description_en);
       formData.append('image', image);
 
       const response = await axios.post(url + '/createCereal', formData, {
