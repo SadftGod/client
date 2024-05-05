@@ -1,9 +1,9 @@
-   import axios from "axios";
+import axios from "axios";
 
 
 
-   const send_message = async (query) => {
-      try {
+const send_message = async (query) => {
+   try {
       const response = await axios.post(
          'https://api.coze.com/open_api/v2/chat',
          {
@@ -13,21 +13,21 @@
          },
          {
             headers: {
-            'Authorization': 'Bearer pat_RFgiimnWbLp7HXrwUiuovmDbaijwRHdMT0SzFU27gYynh6vULbqoWpxPDWjTQGeP',
-            'Content-Type': 'application/json'
+               'Authorization': 'Bearer pat_RFgiimnWbLp7HXrwUiuovmDbaijwRHdMT0SzFU27gYynh6vULbqoWpxPDWjTQGeP',
+               'Content-Type': 'application/json'
             }
          }
       );
-      
+
       return response.data;
-      } catch (error) {
+   } catch (error) {
       console.error(error);
-      }
-   };
-
-
-
-   const botMSG = {
-      send_message
    }
-   export default botMSG
+};
+
+
+
+const botMSG = {
+   send_message
+}
+export default botMSG

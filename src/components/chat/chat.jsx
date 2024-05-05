@@ -109,10 +109,10 @@ export default function ChatAI({ chat, open_chat }) {
             </div>
          </footer>
          {isLoading &&
-          <div className="msg_loader">
-            <img className="msg_loader_gif" src={process.env.PUBLIC_URL + '/img/grain_load.gif'} alt="" />
-          </div>
-          }
+            <div className="msg_loader">
+               <img className="msg_loader_gif" src={process.env.PUBLIC_URL + '/img/grain_load.gif'} alt="" />
+            </div>
+         }
          <div className="chatAI-background">
             <img src={process.env.PUBLIC_URL + '/img/big_logo.png'} alt="" />
          </div>
